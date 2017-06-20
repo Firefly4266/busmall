@@ -1,0 +1,23 @@
+.wrapper {
+  max-width: 95%;
+  padding: 10px;
+  text-align: center;
+}
+
+#shell {
+  display: flex;
+  justify-content: space-around;
+}
+
+.header {
+  margin: 15px;
+  padding: 5px;
+}
+
+img {
+  border: 2px solid black;
+}
+
+.results {
+  display: block;
+}
