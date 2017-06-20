@@ -33,6 +33,15 @@ function randNum(min, max) {
 }
 
 //create a display function
+
+//possible function eliminating the need to duplicate existing code.
+
+// function displayPic() {
+//   this.src = productsArray[this.index].pathName;
+//   this.alt = productsArray[this.index].name;
+//   productsArray[this.index].views +=1;
+// }
+
 function displayPic() {
   var index1 = randNum(0, productsArray.length);
   pic1.src = productsArray[index1].pathName;
@@ -58,7 +67,7 @@ function displayPic() {
 
 
 shell.addEventListener('click', function handleClick() {
-  if(times_clicked < 24){
+  if(times_clicked < 5){
     if(event.target === shell){
       alert('Please click on an image.');
     }else {
