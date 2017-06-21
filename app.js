@@ -13,6 +13,7 @@ var shell = document.getElementById('shell');
 var pic1 = document.getElementById('pic1');
 var pic2 = document.getElementById('pic2');
 var pic3 = document.getElementById('pic3');
+var chartDrawn = false;
 
 //constructor for product instances
 function Product(name) {
@@ -42,7 +43,7 @@ function displayPic() {
 
   var index2 = randNum(0, productsArray.length);
   while(index1 === index2){
-    index2 = randNum(0, productsArray.length);   
+    index2 = randNum(0, productsArray.length); 
   }
   pic2.src = productsArray[index2].pathName;
   pic2.alt = productsArray[index2].name;
@@ -59,14 +60,16 @@ function displayPic() {
 
 
 shell.addEventListener('click', function handleClick() {
-  if(times_clicked < 5){
+  if(times_clicked < 24){
     if(event.target === shell){
       alert('Please click on an image.');
     }else {
       times_clicked++;
     }
   }else {
+    document.getElementById('results').style.display = 'block';
     document.getElementById('results').addEventListener('click', handleButtonClick);
+
     shell.removeEventListener('click', handleClick);
   }
 
@@ -79,28 +82,63 @@ shell.addEventListener('click', function handleClick() {
   displayPic();
 });
 
-function handleButtonClick() {
-  var productName = [], productClicks = [];
+var productName = [];
+var productClicks = [];
 
-  for( i = 0; i < productsArray.length; i++){
+function handleButtonClick() {
+
+  for(var i = 0; i < productsArray.length; i++){
     productName.push(productsArray[i].name);
-    productClicks.push(productsArray[i]).clicked;
+    productClicks.push(productsArray[i].clicked);
   }
 
+  var data = {
+    labels: productName,
+    datasets: [
+      {
+        label: 'Bus Mall Stats',
+        backgroundColor: 'rgba(255,99,132,0.2)',
+        borderWidth: 2,
+        hoverBackgroundColor:'rgba(255,99,132,1)',
+        hoverBorderColor:  'rgba(255,99,132,0.4)',
+        data: productClicks,
+      }
+    ]
+  };
+  drawChart(data);
+}
 
-  function displayStats() {
-    var stats = document.getElementById('stats');
-    for(var i = 0; i < productsArray.length; i++) {
+function hideChart() {
+  document.getElementById('canvas').hidden = true;
+  document.getElementById('results').hidden = true;
+}
+
+function drawChart(data) {
+  var ctx = document.getElementById('canvas').getContext('2d');
+  var myFirstChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+      responsive: false
+    }
+  });
+  chartDrawn = true;
+  document.getElementById('canvas').hidden = false;
+
+  function stats() {
+    document.getElementById('tally');
+    for(i = 0; i < productsArray.length; i++) {
       productName.push(productsArray[i].name);
       productClicks.push( productsArray[i].clicked);
-      var update = document.createElement('p');
-      update.textContent('Hello World');
-      stats.appendChild(update);
     }
-    
   }
-  displayStats();
+  stats();
+  document.getElementById('results').removeEventListener('click', handleButtonClick);
+
+
 
 }
+hideChart();
+
 displayPic();
 
