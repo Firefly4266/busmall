@@ -34,14 +34,6 @@ function randNum(min, max) {
 
 //create a display function
 
-//possible function eliminating the need to duplicate existing code.
-
-// function displayPic() {
-//   this.src = productsArray[this.index].pathName;
-//   this.alt = productsArray[this.index].name;
-//   productsArray[this.index].views +=1;
-// }
-
 function displayPic() {
   var index1 = randNum(0, productsArray.length);
   pic1.src = productsArray[index1].pathName;
@@ -96,15 +88,18 @@ function handleButtonClick() {
   }
 
 
-  function stats() {
-    document.getElementById('stats');
+  function displayStats() {
+    var stats = document.getElementById('stats');
     for(var i = 0; i < productsArray.length; i++) {
       productName.push(productsArray[i].name);
       productClicks.push( productsArray[i].clicked);
+      var update = document.createElement('p');
+      update.textContent('Hello World');
+      stats.appendChild(update);
     }
     
   }
-  stats();
+  displayStats();
 
 }
 displayPic();
