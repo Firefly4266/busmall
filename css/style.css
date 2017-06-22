@@ -9,6 +9,10 @@
   justify-content: space-around;
 }
 
+.canvas {
+  display: inline-block;
+}
+
 .header {
   margin: 15px;
   padding: 5px;
