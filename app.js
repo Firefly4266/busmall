@@ -59,7 +59,7 @@ function displayPic() {
 
 
 shell.addEventListener('click', function handleClick() {
-  if(times_clicked < 5){
+  if(times_clicked < 24){
     if(event.target === shell){
       alert('Please click on an image.');
     }else {
@@ -88,18 +88,21 @@ function handleButtonClick() {
   }
 
 
-  function displayStats() {
-    var stats = document.getElementById('stats');
-    for(var i = 0; i < productsArray.length; i++) {
+  function stats() {
+    var tally = document.getElementById('tally');
+    for(i = 0; i < productsArray.length; i++) {
       productName.push(productsArray[i].name);
       productClicks.push( productsArray[i].clicked);
-      var update = document.createElement('p');
-      update.textContent('Hello World');
-      stats.appendChild(update);
+      var listEl = document.createElement('p');
+      listEl.setAttribute('id', productsArray[i].name);
+      var tree = []; 
+      tree.push(productsArray[i].name + ': ' + productsArray[i].clicked + ' ');
+      listEl.textContent = tree; 
+      tally.appendChild(listEl);
     }
-    
   }
-  displayStats();
+  stats();
+  document.getElementById('results').removeEventListener('click', handleButtonClick);
 
 }
 displayPic();
