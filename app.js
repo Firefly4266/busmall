@@ -106,6 +106,8 @@ function handleButtonClick() {
     ]
   };
   drawChart(data);
+  // localStorage.setItem(data, JSON.stringify(data));
+  localStorage.setItem(productName, productClicks);
 }
 
 function hideChart() {
