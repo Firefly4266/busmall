@@ -1,0 +1,43 @@
+.wrapper {
+  max-width: 95%;
+  padding: 10px;
+  text-align: center;
+}
+
+#shell {
+  display: flex;
+  justify-content: space-around;
+}
+
+#canvas {
+  display: inline-block;
+}
+
+.header {
+  margin: 15px;
+  padding: 5px;
+}
+
+img {
+  border: 2px solid black;
+}
+
+#results {
+  display: none;
+}
+
+#tree {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+#tally {
+  display: flex;
+  flex-wrap: wrap;
+  /*border: 3px dashed black;*/
+}
+p {
+  padding-left: 1em;
+  padding-right: 1em;
+}

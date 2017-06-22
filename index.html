@@ -5,10 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bus Mall</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
 </head>
 <body>
-  <header>
-    Welcome to Bus Mall!
-  </header>
+  <div class="wrapper">
+    <div class="header">
+      <h1><header>Welcome to Bus Mall!</header></h1>
+      <h3>Please select the image that appeals to you the most.</h3>
+    </div>
+    <div id="shell">
+      <img id="pic1" width="400px" height="350px">
+      <img id="pic2" width="400px" height="350px">
+      <img id="pic3" width="400px" height="350px">
+    </div>
+    <button id="results" type="">Results</button>
+    <div id="tree">
+      <ul id="tally"></ul>
+    </div>
+    <hr>
+    <canvas id="canvas" width="1100px" height="300px" style="display: inline-block"></canvas>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>
