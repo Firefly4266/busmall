@@ -13,6 +13,7 @@ var shell = document.getElementById('shell');
 var pic1 = document.getElementById('pic1');
 var pic2 = document.getElementById('pic2');
 var pic3 = document.getElementById('pic3');
+var pic = [pic1, pic2, pic3];
 var chartDrawn = false;
 
 //constructor for product instances
@@ -35,31 +36,47 @@ function randNum(min, max) {
 
 //create a display function
 var prev = [];
+
 function displayPic() {
-  var index1 = randNum(0, productsArray.length);
-  pic1.src = productsArray[index1].pathName;
-  pic1.alt = productsArray[index1].name;
-  productsArray[index1].views +=1;
-  prev.push(productsArray[index1].name);
-
-  var index2 = randNum(0, productsArray.length);
-  while(index1 === index2){
-    index2 = randNum(0, productsArray.length); 
+  var index = [-1, -2, -3];
+  for (var i = 0; i < index.length; i++) {
+    index[i] = randNum(0, productsArray.length);
+    while(index[0] === index[1] || index[1] === index[2] || index[0] === index[3]) {
+      index[i] = randNum(0, productsArray.length);
+    }
+    pic[i].src = productsArray[index[i]].pathName;
+    pic[i].alt = productsArray[index[i]].name;
+    productsArray[index[i]].views += 1;
   }
-  pic2.src = productsArray[index2].pathName;
-  pic2.alt = productsArray[index2].name;
-  productsArray[index2].views += 1;
-  prev.push(productsArray[index2].name);
-
-  var index3 = randNum(0, productsArray.length);
-  while(index2 === index3 || index1 === index3) {
-    index3 = randNum(0, productsArray.length);
-  }
-  pic3.src = productsArray[index3].pathName;
-  pic3.alt = productsArray[index3].name;
-  productsArray[index3].views += 1;
-  prev.push(productsArray[index3].name);
 }
+
+
+
+// function displayPic() {
+//   var index1 = randNum(0, productsArray.length);
+//   pic1.src = productsArray[index1].pathName;
+//   pic1.alt = productsArray[index1].name;
+//   productsArray[index1].views +=1;
+//   prev.push(productsArray[index1].name);
+
+//   var index2 = randNum(0, productsArray.length);
+//   while(index1 === index2){
+//     index2 = randNum(0, productsArray.length); 
+//   }
+//   pic2.src = productsArray[index2].pathName;
+//   pic2.alt = productsArray[index2].name;
+//   productsArray[index2].views += 1;
+//   prev.push(productsArray[index2].name);
+
+//   var index3 = randNum(0, productsArray.length);
+//   while(index2 === index3 || index1 === index3) {
+//     index3 = randNum(0, productsArray.length);
+//   }
+//   pic3.src = productsArray[index3].pathName;
+//   pic3.alt = productsArray[index3].name;
+//   productsArray[index3].views += 1;
+//   prev.push(productsArray[index3].name);
+// }
 
 
 shell.addEventListener('click', function handleClick() {
