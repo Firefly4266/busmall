@@ -34,12 +34,13 @@ function randNum(min, max) {
 }
 
 //create a display function
-
+var prev = [];
 function displayPic() {
   var index1 = randNum(0, productsArray.length);
   pic1.src = productsArray[index1].pathName;
   pic1.alt = productsArray[index1].name;
   productsArray[index1].views +=1;
+  prev.push(productsArray[index1].name);
 
   var index2 = randNum(0, productsArray.length);
   while(index1 === index2){
@@ -48,6 +49,7 @@ function displayPic() {
   pic2.src = productsArray[index2].pathName;
   pic2.alt = productsArray[index2].name;
   productsArray[index2].views += 1;
+  prev.push(productsArray[index2].name);
 
   var index3 = randNum(0, productsArray.length);
   while(index2 === index3 || index1 === index3) {
@@ -56,6 +58,7 @@ function displayPic() {
   pic3.src = productsArray[index3].pathName;
   pic3.alt = productsArray[index3].name;
   productsArray[index3].views += 1;
+  prev.push(productsArray[index3].name);
 }
 
 
