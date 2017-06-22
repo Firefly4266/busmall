@@ -66,6 +66,7 @@ shell.addEventListener('click', function handleClick() {
       times_clicked++;
     }
   }else {
+    document.getElementById('results').style.display = 'block';
     document.getElementById('results').addEventListener('click', handleButtonClick);
     shell.removeEventListener('click', handleClick);
   }
