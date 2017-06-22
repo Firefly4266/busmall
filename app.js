@@ -126,10 +126,16 @@ function drawChart(data) {
   document.getElementById('canvas').hidden = false;
 
   function stats() {
-    document.getElementById('tally');
+    var tally = document.getElementById('tally');
     for(i = 0; i < productsArray.length; i++) {
       productName.push(productsArray[i].name);
       productClicks.push( productsArray[i].clicked);
+      var listEl = document.createElement('p');
+      listEl.setAttribute('id', productsArray[i].name);
+      var tree = []; 
+      tree.push(productsArray[i].name + ': ' + productsArray[i].clicked + ' ');
+      listEl.textContent = tree; 
+      tally.appendChild(listEl);
     }
   }
   stats();
