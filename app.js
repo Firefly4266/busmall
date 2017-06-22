@@ -100,9 +100,9 @@ function handleButtonClick() {
     datasets: [
       {
         label: 'Bus Mall Stats',
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderWidth: 2,
-        hoverBackgroundColor:'rgba(255,99,132,1)',
+        backgroundColor: 'rgba(255,9,132,1.2)',
+        borderWidth: 3,
+        hoverBackgroundColor:'rgba(255,9,32,1)',
         hoverBorderColor:  'rgba(255,99,132,0.4)',
         data: productClicks,
       }
@@ -131,10 +131,16 @@ function drawChart(data) {
   document.getElementById('canvas').hidden = false;
 
   function stats() {
-    document.getElementById('tally');
+    var tally = document.getElementById('tally');
     for(i = 0; i < productsArray.length; i++) {
       productName.push(productsArray[i].name);
       productClicks.push( productsArray[i].clicked);
+      var listEl = document.createElement('p');
+      listEl.setAttribute('id', productsArray[i].name);
+      var tree = []; 
+      tree.push(productsArray[i].name + ': ' + productsArray[i].clicked + ' ');
+      listEl.textContent = tree; 
+      tally.appendChild(listEl);
     }
   }
   stats();

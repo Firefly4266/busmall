@@ -1,3 +1,7 @@
+html body {
+  background-color: steelblue;
+}
+
 .wrapper {
   max-width: 95%;
   padding: 10px;
@@ -23,4 +27,20 @@ img {
 
 .results {
   display: none;
+}
+
+#tree {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+#tally {
+  display: flex;
+  flex-wrap: wrap;
+  border: 3px dashed black;
+}
+p {
+  padding-left: 1em;
+  padding-right: 1em;
 }
