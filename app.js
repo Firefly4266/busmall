@@ -63,7 +63,7 @@ function displayPic() {
 
 
 shell.addEventListener('click', function handleClick() {
-  if(times_clicked < 24){
+  if(times_clicked < 5){
     if(event.target === shell){
       alert('Please click on an image.');
     }else {
