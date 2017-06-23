@@ -101,6 +101,7 @@ db
 build/
 dist/
 
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

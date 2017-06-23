@@ -1,0 +1,63 @@
+html body {
+  background-color: steelblue;
+}
+
+.wrapper {
+  max-width: 95%;
+  padding: 10px;
+  text-align: center;
+}
+
+#shell {
+  display: flex;
+  justify-content: space-around;
+}
+.canvas {
+display: inline-block
+}
+
+.header {
+  margin: 15px;
+  padding: 5px;
+}
+
+img {
+  border: 2px solid black;
+  transition: 2s;
+}
+
+img:hover {
+  border: 3.5px solid white;
+  transform: rotateZ(15deg);
+}
+
+.results {
+  margin: .5em;
+  display: none;
+}
+
+#tree {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+#tally {
+  display: flex;
+  flex-wrap: wrap;
+}
+p {
+  padding-left: 1em;
+  padding-right: 1em;
+  animation-name: swim;
+  animation-duration: 30s;
+  animation-fill-mode: both;
+  animation-delay: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes swim{
+  from{transform: translateX(-70px)}
+  to{transform: translate(1100px)}
+}
